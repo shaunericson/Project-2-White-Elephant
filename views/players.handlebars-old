@@ -1,0 +1,44 @@
+
+
+
+    <div class="jumbotron">
+      <h1 class="display-4">White Elephant Game</h1>
+      
+      <h4>Game Number: {{id}}, Game Name: {{game_name}}, Dollar Limit:    ${{gift_dollar_max}} per gift</h4>
+
+      <hr class="my-4">
+      <ul>
+        {{#each listOfPlayers}}
+          <li>Player Name: {{player_name}}, Player Pic:  {{player_pic}}</li>
+        {{/each }}
+      </ul>
+
+      <hr class="my-4">
+      <form id="form1" method="POST" action="/playerspecs">
+        <!-- From Steve, HBS likes forms like this -->
+        <div class="form-group">
+          <label for="gamePlayerName">Player Name:</label>
+          <input type="text" class="form-control" id="player-name" name="playerName">
+        </div>
+        <div class="form-group">
+          <label for="gamePlayerPic">Player URL Pic:</label>
+          <input type="text" class="form-control" id="player-pic" name="playerPic"><br>
+        </div>
+        <div class="form-group">
+          <label for="gameGiftDescription">Gift Description:</label>
+          <input type="text" class="form-control" id="gift-description" name="giftDescription"><br>
+        </div>
+        <div class="form-group">
+          <label for="gameGiftURL">Gift URL:</label>
+          <input type="text" class="form-control" id="gift-url" name="giftURL"><br>
+        </div>
+      </form>
+      <button type="submit" form="form1" id="get-started" value="Submit" class="btn btn-danger float-right">Submit
+        Present</button>
+
+    </div>
+
+
+
+
+

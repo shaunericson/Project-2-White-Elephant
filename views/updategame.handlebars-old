@@ -1,0 +1,61 @@
+<div class="jumbotron">
+  <h1 class="display-4">White Elephant Game</h1>
+
+  <hr class="my-4">
+  {{#each activePlayer}}
+  <h4>Player Name: {{player_name}}</h4>
+
+  {{/each }}
+  <hr class="my-4">
+  <div class="container">
+    <ul>
+      <div class="row">
+        <div class="col-md-6">
+          <form id="form3" method="POST" action="/playgame/updategame"></form>
+          {{#each listOfGifts}}
+          <div class="row">
+            {{!-- GIFTS --}}
+            {{!-- <div class="col-md-6"></div> --}}
+
+            <div class="col-md-8">
+              <li>Gift Name: {{gift_name}}, Gift Pic: {{gift_pic}}, {{gift_state}}
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-success float-right" type="submit" name="gift_id" value={{id}} form="form3" id="select-gift"
+                data-value={{id}} id="a-select-gift-{{id}}">Select</button></li>
+            </div>
+
+          </div>
+          {{/each }}
+          </form>
+        </div>
+        <div class="col-md-6">
+          <form id="form4" method="GET" action="/playgame"></form>
+          {{#each listOfPlayers}}
+          <div class="row">
+
+            {{!-- PLAYERS --}}
+
+            <div class="col-md-8">
+              <li>Player Name: {{player_name}}, Player Pic: {{player_pic}}
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-danger float-right" type="submit" form="form4" id="steal-gift" data-value={{id}}
+                id="a-steal-gift-{{id}}">STEAL</button></li>
+            </div>
+
+          </div>
+          {{/each }}
+          </form>
+        </div>
+      </div>
+  </div>
+  </ul>
+
+  <hr class="my-4">
+
+  {{!-- <button type="submit" form="form2" id="get-started" value="Submit" class="btn btn-success float-right">Start
+    Game</button> --}}
+  {{!-- <button type="submit" form="form1" id="enter-player" value="Submit" class="btn btn-danger float-right">Submit
+    Present</button> --}}
+</div>
